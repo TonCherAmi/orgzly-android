@@ -273,6 +273,12 @@ class DataRepository @Inject constructor(
         return null
     }
 
+    fun getFirstTopLevelNotePlace(bookId: Long): NotePlace {
+        return db.note().getTopLevel(bookId).firstOrNull()?.let {
+            NotePlace(bookId, it.id, Place.ABOVE)
+        } ?: NotePlace(bookId)
+    }
+
     /**
      * Creates new dummy book - temporary incomplete book
      * (before remote book has been downloaded, or linked etc.)
@@ -1281,8 +1287,9 @@ class DataRepository @Inject constructor(
         val book = getTargetBook(context)
 
         val notePayload = NoteBuilder.newPayload(context, title, "")
+        val notePlace = getFirstTopLevelNotePlace(book.book.id)
 
-        createNote(notePayload, NotePlace(book.book.id))
+        createNote(notePayload, notePlace)
     }
 
     /**

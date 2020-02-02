@@ -470,7 +470,9 @@ class BookFragment :
     override fun getFabAction(): Runnable? {
         return if (currentBook != null) {
             Runnable {
-                listener?.onNoteNewRequest(NotePlace(mBookId))
+                val notePlace = dataRepository.getFirstTopLevelNotePlace(mBookId)
+
+                listener?.onNoteNewRequest(notePlace)
             }
         } else
             null

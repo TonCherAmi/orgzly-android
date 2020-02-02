@@ -198,14 +198,16 @@ public class ShareActivity extends CommonActivity
 
             try {
                 long bookId;
+
                 if (data.bookId == null) {
                     bookId = dataRepository.getTargetBook(this).getBook().getId();
                 } else {
                     bookId = data.bookId;
                 }
 
-                noteFragment = NoteFragment.forNewNote(
-                        new NotePlace(bookId), data.title, data.content);
+                NotePlace notePlace = dataRepository.getFirstTopLevelNotePlace(bookId);
+
+                noteFragment = NoteFragment.forNewNote(notePlace, data.title, data.content);
 
                 getSupportFragmentManager()
                         .beginTransaction()
