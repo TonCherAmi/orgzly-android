@@ -31,10 +31,6 @@ class StatesPreferenceFragment : PreferenceDialogFragmentCompat() {
         doneLayout = view.findViewById(R.id.done_states_layout)
         doneStates = view.findViewById(R.id.done_states)
 
-        // Force all uppercase
-        todoStates.filters = todoStates.filters + InputFilter.AllCaps()
-        doneStates.filters = doneStates.filters + InputFilter.AllCaps()
-
         val watcher = object : TextWatcher {
             override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
 

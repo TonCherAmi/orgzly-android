@@ -14,13 +14,13 @@
         android:layout_height="wrap_content"
         app:hintEnabled="true"
         app:errorEnabled="true">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/todo_states"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textCapCharacters"
-            android:lines="1"
-            android:hint="@string/todo_states"/>
+            android:hint="@string/todo_states"
+            android:lines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -29,13 +29,13 @@
         android:layout_height="wrap_content"
         app:hintEnabled="true"
         app:errorEnabled="true">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/done_states"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textCapCharacters"
-            android:lines="1"
-            android:hint="@string/done_states"/>
+            android:hint="@string/done_states"
+            android:lines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>
